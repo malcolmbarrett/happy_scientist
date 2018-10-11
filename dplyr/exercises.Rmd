@@ -6,6 +6,10 @@ output:
 ---
 
 ```{r setup}
+# If you need to install these packages:
+# install.packages(c("tidyverse", "gapminder", "nycflights13"))
+
+
 library(tidyverse)
 library(gapminder)
 library(nycflights13)
@@ -39,7 +43,7 @@ gapminder
 ```
 
 
-## Your Turn 1
+## Live Code 1
 
 Alter the code to select just the `pop` column:
 
@@ -58,7 +62,7 @@ select(gapminder, starts_with("c"))
 select(gapminder, ends_with("t"))
 ```
 
-## Your Turn 2
+## Live Code 2
 
 Show:
 
@@ -72,7 +76,7 @@ Show:
 filter(gapminder, is.na(year))
 ```
 
-## Your Turn 3
+## Live Code 3
 
 Use Boolean operators to alter the code below to return only the rows that contain:
 
@@ -84,7 +88,7 @@ filter(gapminder, country == "El Salvador" | country == "Oman")
 
 ```
 
-## Your Turn 4
+## Live Code 4
 
 Arrange gapminder by `year`. Add `lifeExp` as a second (tie breaking) variable to arrange on. Which country had the lowest life expectency in 1952?
 
@@ -92,7 +96,7 @@ Arrange gapminder by `year`. Add `lifeExp` as a second (tie breaking) variable t
 
 ```
 
-## Your Turn 5
+## Live Code 5
 
 Use `desc()` to find the country with the highest `gdpPercap`.
 
@@ -100,7 +104,7 @@ Use `desc()` to find the country with the highest `gdpPercap`.
 
 ```
 
-## Your Turn 6
+## Live Code 6
 
 Use `%>%` to write a sequence of functions that: 
 
@@ -112,20 +116,8 @@ Use `%>%` to write a sequence of functions that:
 
 ```
 
-## Exam
 
-1. Import the diabetes data from the importing data. A copy of the CSV file is available in this folder.
-2. Add the variable `bmi` to the data set using height and weight using the formula: `(weight / height^2) * 703`
-3. Select just `id`, `glyhb`, and the new variable you created.
-4. Filter rows that have BMI > 35
-
-How many rows and columns are in your new data set?
-
-```{r}
-
-```
-
-## Your Turn 7
+## Live Code 7
 
 Use summarise() to compute three statistics about the gapminder data set:
 
@@ -137,7 +129,7 @@ Use summarise() to compute three statistics about the gapminder data set:
 
 ```
 
-## Your Turn 8
+## Live Code 8
 
 Extract the rows where `continent == "Europe"`. Then use `group_by()` to group by country. Finally, use `summarize()` to compute:
 
@@ -148,7 +140,7 @@ Extract the rows where `continent == "Europe"`. Then use `group_by()` to group b
 
 ```
 
-## Your Turn 9
+## Live Code 9
 
 Use grouping to calculate the mean life expectancy for each continent and year. Call the mean life expectancy variable `mean_le`. Plot the life expectancy over time (no need to change the plot code).
 
