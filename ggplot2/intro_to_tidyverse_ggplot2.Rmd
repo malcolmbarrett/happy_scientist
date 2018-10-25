@@ -2,7 +2,7 @@
 title: "Introduction to the Tidyverse"
 subtitle: "part 1: data visualization with ggplot2"
 author: "Malcolm Barrett"
-date: "10/25/2018 <p><h4>Slides: <a href='http://bit.ly/hs_ggplot_slides'>bit.ly/hs_ggplot_slides</a></h4></p> <p><h4>Code: <a href='http://bit.ly/hs_ggplot'>bit.ly/hs_ggplot</a></h4></p>"
+date: "10/25/2018 <p><h4>Slides: <a href='http://bit.ly/hs_ggplot2_slides'>bit.ly/hs_ggplot2_slides</a></h4></p> <p><h4>Code: <a href='http://bit.ly/hs_ggplot2'>bit.ly/hs_ggplot2</a></h4></p>"
 output:
   xaringan::moon_reader:
     css: ["default", "theme.css"]
@@ -908,8 +908,6 @@ class: inverse, center
 ---
 
 class: inverse, center, middle
-
-# Thank you!
 
 ![](https://media.giphy.com/media/KJ1f5iTl4Oo7u/giphy.gif)
 
