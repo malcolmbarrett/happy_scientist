@@ -71,8 +71,8 @@ Show:
 * All of the rows that have a missing value for `year`  (no need to edit this code)
 
 ```{r}
-
-
+filter(gapminder, pop > 100000)
+filter(gapminder, country == "El Salvador")
 filter(gapminder, is.na(year))
 ```
 
@@ -113,7 +113,10 @@ Use `%>%` to write a sequence of functions that:
 3. Arrange the results so that the highest life expetency is at the top.
 
 ```{r}
-
+gapminder %>% 
+  filter(continent == "Oceania") %>% 
+  select(country, year, lifeExp) %>% 
+  arrange(desc(lifeExp))
 ```
 
 
