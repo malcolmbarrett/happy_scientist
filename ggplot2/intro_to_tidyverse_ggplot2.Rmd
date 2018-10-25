@@ -1,6 +1,6 @@
 ---
 title: "Introduction to the Tidyverse"
-subtitle: "part 1: data visualization with ggplot2"
+subtitle: "part 2: data visualization with ggplot2"
 author: "Malcolm Barrett"
 date: "10/25/2018 <p><h4>Slides: <a href='http://bit.ly/hs_ggplot2_slides'>bit.ly/hs_ggplot2_slides</a></h4></p> <p><h4>Code: <a href='http://bit.ly/hs_ggplot2'>bit.ly/hs_ggplot2</a></h4></p>"
 output:
@@ -669,6 +669,20 @@ ggplot(aes(hp, mpg, col = factor(cyl))) +
   scale_x_log() + 
   scale_colour_brewer(name = "Cylinders", palette = "Set2") +
   theme_minimal() +  #<<
+  theme(axis.text = element_text(size = 16),  
+        legend.text = element_text(size = 8, face = "bold"),  
+        legend.direction = "horizontal")  
+```
+
+---
+
+```{r, eval=FALSE}
+mtcars %>% 
+ggplot(aes(hp, mpg, col = factor(cyl))) + 
+  geom_point(size = 3) + 
+  scale_x_log() + 
+  scale_colour_brewer(name = "Cylinders", palette = "Set2") +
+  theme_minimal() +  
   theme(axis.text = element_text(size = 16),  #<<
         legend.text = element_text(size = 8, face = "bold"),  #<<
         legend.direction = "horizontal")  #<<
@@ -705,6 +719,18 @@ diabetes %>%
   geom_point() +
   scale_color_viridis_c() +
   theme_minimal() + #<<
+  theme(legend.position = "bottom", 
+        axis.ticks = element_blank(), 
+        axis.title = element_text(size = 16)) 
+```
+---
+
+```{r, eval=FALSE}
+diabetes %>% 
+  ggplot(aes(waist, hip, col = weight)) + 
+  geom_point() +
+  scale_color_viridis_c() +
+  theme_minimal() + 
   theme(legend.position = "bottom", #<<
         axis.ticks = element_blank(), #<<
         axis.title = element_text(size = 16)) #<<

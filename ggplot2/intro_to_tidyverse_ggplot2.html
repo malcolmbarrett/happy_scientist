@@ -13,7 +13,7 @@
 class: center, middle, inverse, title-slide
 
 # Introduction to the Tidyverse
-## part 1: data visualization with ggplot2
+## part 2: data visualization with ggplot2
 ### Malcolm Barrett
 ### 10/25/2018
 <p>
@@ -827,6 +827,21 @@ ggplot(aes(hp, mpg, col = factor(cyl))) +
   scale_x_log() + 
   scale_colour_brewer(name = "Cylinders", palette = "Set2") +
 * theme_minimal() +
+  theme(axis.text = element_text(size = 16),  
+        legend.text = element_text(size = 8, face = "bold"),  
+        legend.direction = "horizontal")  
+```
+
+---
+
+
+```r
+mtcars %&gt;% 
+ggplot(aes(hp, mpg, col = factor(cyl))) + 
+  geom_point(size = 3) + 
+  scale_x_log() + 
+  scale_colour_brewer(name = "Cylinders", palette = "Set2") +
+  theme_minimal() +  
 * theme(axis.text = element_text(size = 16),
 *       legend.text = element_text(size = 8, face = "bold"),
 *       legend.direction = "horizontal")
@@ -834,7 +849,7 @@ ggplot(aes(hp, mpg, col = factor(cyl))) +
 
 ---
 
-&lt;img src="intro_to_tidyverse_ggplot2_files/figure-html/unnamed-chunk-50-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="intro_to_tidyverse_ggplot2_files/figure-html/unnamed-chunk-51-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -855,6 +870,19 @@ diabetes %&gt;%
   geom_point() +
   scale_color_viridis_c() +
 * theme_minimal() +
+  theme(legend.position = "bottom", 
+        axis.ticks = element_blank(), 
+        axis.title = element_text(size = 16)) 
+```
+---
+
+
+```r
+diabetes %&gt;% 
+  ggplot(aes(waist, hip, col = weight)) + 
+  geom_point() +
+  scale_color_viridis_c() +
+  theme_minimal() + 
 * theme(legend.position = "bottom",
 *       axis.ticks = element_blank(),
 *       axis.title = element_text(size = 16))
@@ -862,7 +890,7 @@ diabetes %&gt;%
 
 ---
 
-&lt;img src="intro_to_tidyverse_ggplot2_files/figure-html/unnamed-chunk-53-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="intro_to_tidyverse_ggplot2_files/figure-html/unnamed-chunk-55-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -898,7 +926,7 @@ diamonds %&gt;%
   geom_point()
 ```
 
-&lt;img src="intro_to_tidyverse_ggplot2_files/figure-html/unnamed-chunk-55-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="intro_to_tidyverse_ggplot2_files/figure-html/unnamed-chunk-57-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -922,7 +950,7 @@ diamonds %&gt;%
 * geom_point(alpha = .05)
 ```
 
-&lt;img src="intro_to_tidyverse_ggplot2_files/figure-html/unnamed-chunk-56-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="intro_to_tidyverse_ggplot2_files/figure-html/unnamed-chunk-58-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -933,7 +961,7 @@ diamonds %&gt;%
 * geom_bin2d()
 ```
 
-&lt;img src="intro_to_tidyverse_ggplot2_files/figure-html/unnamed-chunk-57-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="intro_to_tidyverse_ggplot2_files/figure-html/unnamed-chunk-59-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -944,7 +972,7 @@ diamonds %&gt;%
 * geom_hex()
 ```
 
-&lt;img src="intro_to_tidyverse_ggplot2_files/figure-html/unnamed-chunk-58-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="intro_to_tidyverse_ggplot2_files/figure-html/unnamed-chunk-60-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1003,7 +1031,7 @@ ggplot(diabetes, aes(weight, hip, linetype = gender)) +
 
 ---
 
-&lt;img src="intro_to_tidyverse_ggplot2_files/figure-html/unnamed-chunk-61-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="intro_to_tidyverse_ggplot2_files/figure-html/unnamed-chunk-63-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
