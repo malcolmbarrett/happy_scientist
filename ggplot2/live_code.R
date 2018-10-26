@@ -12,9 +12,10 @@ diabetes <- read_csv("ggplot2/diabetes.csv")
 # 6. Jitter the points. You can either change the geom or change the `position` argument.
 # 7. Add another layer, `theme_bw()`. Remember to use `+`.
 
-ggplot(diabetes, aes(weight, hip)) + 
-  geom_point() +
-  geom_smooth()
+ggplot(diabetes, aes(weight, hip, linetype = gender, shape = gender)) + 
+  geom_jitter(alpha = .2) +
+  geom_smooth(col = "black", se = FALSE) +
+  theme_bw()
 
 
 # Part 2 ------------------------------------------------------------------
@@ -23,3 +24,14 @@ ggplot(diabetes, aes(weight, hip)) +
 # 2. Change the x and y axis labels to include the unites (inches for `hip` and pounds for `weight`). You can use either `labs()` or `xlab()` and `ylab()`
 # 3. Add `scale_linetype()` and set the `name` argument to "Sex".
 # 4. Save the plot
+# 
+ggplot(diabetes, aes(weight, hip, linetype = gender, shape = gender)) + 
+  geom_jitter(alpha = .2) +
+  geom_smooth(col = "black", se = FALSE) +
+  theme_bw() +
+  ggtitle("Weight and  Hip by Sex", subtitle = "Subtitle") +
+  theme(plot.title = element_text(hjust = .5)) +
+  labs(x = "Weight (lbs)", y = "Hip (in.)") +
+  scale_linetype(name = "Sex")
+
+ggsave("myplot.png")
