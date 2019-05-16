@@ -17,12 +17,12 @@ class: center, middle, inverse, title-slide
 ### Malcolm Barrett
 ### <p>
 <h4>
-Slides: <a href='http://bit.ly/hs_ggplot2_slides'>bit.ly/hs_ggplot2_slides</a>
+Slides: <a href='http://bit.ly/hs_purrr_slides'>bit.ly/hs_purrr_slides</a>
 </h4>
 </p>
 <p>
 <h4>
-Code: <a href='http://bit.ly/hs_ggplot2'>bit.ly/hs_ggplot2</a>
+Code: <a href='http://bit.ly/hs_purrr_repo'>bit.ly/hs_purrr_repo</a>
 </h4>
 </p>
 
@@ -116,7 +116,7 @@ list(a = "hello", b = 1, c = mean)
 ## $c
 ## function (x, ...) 
 ## UseMethod("mean")
-## &lt;bytecode: 0x7f8b77def438&gt;
+## &lt;bytecode: 0x7f996d1fc3b0&gt;
 ## &lt;environment: namespace:base&gt;
 ```
 
@@ -274,6 +274,9 @@ sum(list(x = rnorm(10), y = rnorm(10), z = rnorm(10)))
 
 ---
 
+background-image: url(http://hexb.in/hexagons/purrr.png)
+background-position: 95% 2%
+
 # map(.x, .f)
 
 --
@@ -290,7 +293,7 @@ sum(list(x = rnorm(10), y = rnorm(10), z = rnorm(10)))
 
 ---
 
-# map()
+# Using map()
 
 
 ```r
@@ -302,7 +305,33 @@ map(x_list, mean)
 
 ---
 
-# map()
+# Using map()
+
+
+```r
+library(purrr)
+*x_list &lt;- list(x = rnorm(10), y = rnorm(10), z = rnorm(10))
+
+map(x_list, mean)
+```
+
+
+---
+
+# Using map()
+
+
+```r
+library(purrr)
+x_list &lt;- list(x = rnorm(10), y = rnorm(10), z = rnorm(10))
+
+*map(x_list, mean)
+```
+
+
+---
+
+# Using map()
 
 
 ```r
@@ -612,7 +641,7 @@ map_int(gapminder, ~length(unique(.x)))
 
 ```r
 gapminder_countries &lt;- split(gapminder, gapminder$country)
-models &lt;- map(gapminder_countries, ~ lm(lifeExp ~ year, data = .))
+models &lt;- map(gapminder_countries, ~ lm(lifeExp ~ year, data = .x))
 preds &lt;- map2(models, gapminder_countries, predict)
 head(preds, 3)
 ```
@@ -623,7 +652,7 @@ head(preds, 3)
 
 ```r
 *gapminder_countries &lt;- split(gapminder, gapminder$country)
-models &lt;- map(gapminder_countries, ~ lm(lifeExp ~ year, data = .))
+models &lt;- map(gapminder_countries, ~ lm(lifeExp ~ year, data = .x))
 preds &lt;- map2(models, gapminder_countries, predict)
 head(preds, 3)
 ```
@@ -635,7 +664,7 @@ head(preds, 3)
 
 ```r
 gapminder_countries &lt;- split(gapminder, gapminder$country)
-*models &lt;- map(gapminder_countries, ~ lm(lifeExp ~ year, data = .))
+*models &lt;- map(gapminder_countries, ~ lm(lifeExp ~ year, data = .x))
 preds &lt;- map2(models, gapminder_countries, predict)
 head(preds, 3)
 ```
@@ -647,7 +676,7 @@ head(preds, 3)
 
 ```r
 gapminder_countries &lt;- split(gapminder, gapminder$country)
-models &lt;- map(gapminder_countries, ~ lm(lifeExp ~ year, data = .))
+models &lt;- map(gapminder_countries, ~ lm(lifeExp ~ year, data = .x))
 *preds &lt;- map2(models, gapminder_countries, predict)
 head(preds, 3)
 ```
@@ -659,7 +688,7 @@ head(preds, 3)
 
 ```r
 gapminder_countries &lt;- split(gapminder, gapminder$country)
-models &lt;- map(gapminder_countries, ~ lm(lifeExp ~ year, data = .))
+models &lt;- map(gapminder_countries, ~ lm(lifeExp ~ year, data = .x))
 preds &lt;- map2(models, gapminder_countries, predict)
 head(preds, 3)
 ```
@@ -822,7 +851,7 @@ for (i in seq_along(x)) {
 class: inverse, center
 
 # Learn more!
-## Try the purrr exercises in the repo for this talk!
+## Try the purrr exercises [interactively](http://bit.ly/purrr_exercises) or [in the repo](http://bit.ly/hs_purrr_repo) for this talk!
 ## [Jenny Bryan's purrr tutorial](https://jennybc.github.io/purrr-tutorial/): A detailed introduction to purrr. Free online.
 ## [R for Data Science](http://r4ds.had.co.nz/): A comprehensive but friendly introduction to the tidyverse. Free online.
 
